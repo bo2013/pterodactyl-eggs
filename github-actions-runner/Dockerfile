@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM docker.io/ubuntu:24.04
+ARG DISTRO=ubuntu:24.04
+
+FROM ${DISTRO}
 
 ARG GAR_VERSION=2.336.0
 ARG GAR_CHECKSUM=04cf0be1aff4c3ec3554466c39124ca250e3effd8873bb7e8d68535aa9505d5d
