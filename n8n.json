@@ -1,3 +1,64 @@
 {
-
+    "$schema": "schema.json",
+    "_comment": "Do not send emails to this address. I do not receive them.",
+    "name": "n8n",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": "https://raw.githubusercontent.com/bo2013/pterodactyl-eggs/main/n8n.json"
+    },
+    "author": "liuphuc06@gmail.com",
+    "description": "n8n workflow automation platform with support for AI-powered workflows.",
+    "features": null,
+    "docker_images": {
+        "n8n": "docker.n8n.io/n8nio/n8n:{{VERSION}}"
+    },
+    "startup": "start",
+    "config": {
+        "files": "{}",
+        "startup": "{}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "variables": [
+        {
+            "name": "Version",
+            "description": "You can use latest, nightly, or a specific version.",
+            "env_variable": "VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Enforce Settings File Permissions",
+            "description": "Set this to true to enforce secure permissions on n8n settings files.",
+            "env_variable": "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Enable Task Runners",
+            "description": "Enable n8n task runners.",
+            "env_variable": "N8N_RUNNERS_ENABLED",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Timezone",
+            "description": "Timezone used by n8n.",
+            "env_variable": "GENERIC_TIMEZONE",
+            "default_value": "UTC",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        }
+    ]
 }

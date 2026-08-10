@@ -1,4 +1,179 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://example.com/pterodactyl-egg.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/bo2013/pterodactyl-eggs/main/schema.json",
+  "title": "Pterodactyl Egg",
+  "type": "object",
+  "required": [
+    "meta",
+    "name",
+    "author",
+    "description",
+    "features",
+    "docker_images",
+    "startup",
+    "config",
+    "scripts",
+    "variables"
+  ],
+  "properties": {
+    "_comment": {
+      "type": "string"
+    },
+
+    "meta": {
+      "type": "object",
+      "required": [
+        "version",
+        "update_url"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "const": "PTDL_v2"
+        },
+        "update_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "exported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "name": {
+      "type": "string"
+    },
+
+    "author": {
+      "type": "string",
+      "format": "email"
+    },
+
+    "description": {
+      "type": "string"
+    },
+
+    "features": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "docker_images": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+
+    "startup": {
+      "type": "string"
+    },
+
+    "config": {
+      "type": "object",
+      "required": [
+        "files",
+        "startup",
+        "logs",
+        "stop"
+      ],
+      "properties": {
+        "files": {
+          "type": "string"
+        },
+        "startup": {
+          "type": "string"
+        },
+        "logs": {
+          "type": "string"
+        },
+        "stop": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "scripts": {
+      "type": "object",
+      "required": [
+        "installation"
+      ],
+      "properties": {
+        "installation": {
+          "type": "object",
+          "required": [
+            "script",
+            "container",
+            "entrypoint"
+          ],
+          "properties": {
+            "script": {
+              "type": "string"
+            },
+            "container": {
+              "type": "string"
+            },
+            "entrypoint": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "env_variable",
+          "default_value",
+          "user_viewable",
+          "user_editable",
+          "rules",
+          "field_type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "env_variable": {
+            "type": "string"
+          },
+          "default_value": {
+            "type": ["string", "null"]
+          },
+          "user_viewable": {
+            "type": "boolean"
+          },
+          "user_editable": {
+            "type": "boolean"
+          },
+          "rules": {
+            "type": "string"
+          },
+          "field_type": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+
+  "additionalProperties": false
 }
