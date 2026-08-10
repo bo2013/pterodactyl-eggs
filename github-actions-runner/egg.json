@@ -1,0 +1,50 @@
+{
+    "$schema": "../schema.json",
+    "name": "github-actions-runner",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "author": "pleaseplaceyouremail@invaild.com",
+    "description": "GitHub Actions self-hosted runner.",
+    "features": null,
+    "docker_images": {
+        "default": "Your image dir"
+    },
+    "startup": "if [ ! -f .runner ]; then ./config.sh --url \"$GAR_URL\" --token \"$GAR_TOKEN\" --unattended; fi; ./run.sh",
+    "config": {
+        "files": "{}",
+        "logs": "{}",
+        "startup": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "",
+            "container": "docker.io/ubuntu:24.04",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Github actions runner URL",
+            "description": "Take from Your Repo > Settings > Actions > Runners > New self-hosted runner",
+            "env_variable": "GAR_URL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Github actions runner Token",
+            "description": "Take from Your Repo > Settings > Actions > Runners > New self-hosted runner",
+            "env_variable": "GAR_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        }
+    ]
+}
