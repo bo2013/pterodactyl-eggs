@@ -1,4 +1,4 @@
-name: Github Action runner
+name: Github Actions runner
 
 on:
     workflow_dispatch:
