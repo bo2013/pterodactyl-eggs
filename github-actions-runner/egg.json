@@ -1,21 +1,22 @@
 {
     "$schema": "../schema.json",
+    "_comment": "Do not send emails to this address. I do not receive them.",
     "name": "github-actions-runner",
     "meta": {
         "version": "PTDL_v2",
-        "update_url": null
+        "update_url": "https://raw.githubusercontent.com/bo2013/pterodactyl-eggs/main/github-actions-runner/egg.json"
     },
-    "author": "pleaseplaceyouremail@invaild.com",
+    "author": "liuphuc06@gmail.com",
     "description": "GitHub Actions self-hosted runner.",
     "features": null,
     "docker_images": {
-        "default": "Your image dir"
+        "gar-2.336.0-ubuntu": "ghcr.io/bo2013/pterodactyl-eggs:gar-2.336.0-ubuntu"
     },
     "startup": "if [ ! -f .runner ]; then ./config.sh --url \"$GAR_URL\" --token \"$GAR_TOKEN\" --unattended; fi; ./run.sh",
     "config": {
         "files": "{}",
-        "logs": "{}",
         "startup": "{}",
+        "logs": "{}",
         "stop": "^C"
     },
     "scripts": {
