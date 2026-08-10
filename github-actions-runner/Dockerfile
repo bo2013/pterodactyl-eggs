@@ -21,6 +21,7 @@ RUN --mount=type=tmpfs,target=/tmp \
     https://github.com/actions/runner/releases/download/v${GAR_VERSION}/actions-runner-linux-x64-${GAR_VERSION}.tar.gz && \
     echo "${GAR_CHECKSUM}  /tmp/actions-runner-linux-x64-${GAR_VERSION}.tar.gz" | sha256sum -c - && \
     tar xzf /tmp/actions-runner-linux-x64-${GAR_VERSION}.tar.gz -C /home/container/actions-runner && \
+    /home/container/actions-runner/bin/installdependencies.sh && \
     chown -R container:container /home/container
 
 WORKDIR /home/container/actions-runner
