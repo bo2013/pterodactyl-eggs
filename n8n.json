@@ -32,16 +32,6 @@
     },
     "variables": [
         {
-            "name": "Version",
-            "description": "You can use latest, nightly, or a specific version.",
-            "env_variable": "VERSION",
-            "default_value": "latest",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string",
-            "field_type": "text"
-        },
-        {
             "name": "Enforce Settings File Permissions",
             "description": "Set this to true to enforce secure permissions on n8n settings files.",
             "env_variable": "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS",

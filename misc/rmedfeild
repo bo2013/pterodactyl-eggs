@@ -1,0 +1,10 @@
+        {
+            "name": "Version",
+            "description": "You can use latest, nightly, or a specific version.",
+            "env_variable": "VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
